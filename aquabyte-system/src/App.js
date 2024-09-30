@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 import './styles/App.css';
 import LandingPage from './pages/LandingPage';
+import QuotaManagement from './pages/QuotaManagement';
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
         <Router>
             <AppRoutes>
                 <LandingPage/>
+                <QuotaManagement/>
             </AppRoutes>
         </Router>
     );

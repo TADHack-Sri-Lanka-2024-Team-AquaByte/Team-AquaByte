@@ -14,7 +14,8 @@ const LandingPage = () => {
                     <button className="get-started-button">Get Started</button>
                 </div>
             </div>
-            <Footer /> {/* Include the Footer component */}
+            <Footer /> 
+
         </div>
     );
 };
