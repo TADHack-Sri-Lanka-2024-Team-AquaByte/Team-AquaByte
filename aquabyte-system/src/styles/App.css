@@ -17,7 +17,6 @@ header {
     display: flex;
     justify-content: center; /* Center the header content */
     align-items: center; /* Vertically center the items */
-    padding: 10px 20px;
     background-color: #ffffff; /* Background color for header */
     width: 100vw; /* Full viewport width */
     position: relative; /* Allows for absolute positioning of child elements */
@@ -27,14 +26,15 @@ header {
 .header-nav {
     display: flex;
     justify-content: space-between; /* Space between logo and sign-in button */
+    align-items: center; /* Vertically align items */
     width: 100%;
     max-width: 1200px; /* Optional: Limit the max width of header */
     flex-grow: 1; /* Allow header-nav to grow to fill space */
 }
 
 .logo {
-    height: 40px; /* Adjust the logo size */
-    width: 40px;
+    height: 80px;
+    width: 80px; 
 }
 
 .sign-in-button {
@@ -42,8 +42,11 @@ header {
     background-color: #0e2041; /* Button background color */
     color: white;
     text-decoration: none;
+    text-align: center;
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+    height: 40px; 
+    min-width: 100px; 
 }
 
 .sign-in-button:hover {
@@ -116,6 +119,102 @@ footer {
     width: 100%; /* Ensure footer takes full width */
 }
 
+.features-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border: 2px dotted black ;
+    margin: 50px;
+}
+
+.features-heading {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.feature-button{
+    background-color: #282c34;
+    color: white;
+    border-radius: 4px;
+}
+
+.features-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-rows: auto auto auto; /* Three rows for each feature */
+    gap: 10px; /* Space between items */
+}
+
+/* Adjust each feature position */
+.feature {
+    margin: 0; /* Remove margin to avoid extra spacing */
+    padding: 20px;
+    
+}
+
+/* Feature positioning */
+.feature:nth-child(1) {
+    grid-column: 1; /* First feature on the left */
+    grid-row: 1; /* First row */
+}
+
+.feature:nth-child(2) {
+    grid-column: 2; /* Second feature in the middle */
+    grid-row: 2; /* First row */
+}
+
+.feature:nth-child(3) {
+    grid-column: 3; /* Third feature on the right */
+    grid-row: 3; /* First row */
+}
+
+/* New CTA Section Styles */
+.cta-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cta-heading {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color:  #0e2041;
+}
+
+.cta-text {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color:  #0e2041;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color:  #0e2041;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.cta-button:hover {
+    background-color: #21a1f1;
+}
+
+/* Stack features under each other on small screens */
+@media (max-width: 768px) {
+    .features-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    
+    .feature {
+        grid-column: 1; /* All features take full width in a single column */
+        grid-row: auto; /* Automatically position each feature */
+    }
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .header-nav {
@@ -124,12 +223,13 @@ footer {
     }
     
     .logo {
-        height: 50px; /* Adjust logo size for smaller screens */
+        height: 50px; 
         width: 50px;
     }
 
     .sign-in-button {
         margin-top: 10px; /* Add some space above the button */
+        min-width: 80px; /* Adjust minimum width for smaller screens */
     }
 
     h1 {
@@ -138,6 +238,11 @@ footer {
 
     h2 {
         font-size: 1.2em; /* Smaller font size for smaller screens */
+    }
+
+    .features-section {
+        flex-direction: column; /* Stack feature boxes vertically on smaller screens */
+        align-items: center; /* Center feature boxes */
     }
 }
 
