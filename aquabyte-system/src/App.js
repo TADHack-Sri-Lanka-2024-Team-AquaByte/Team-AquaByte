@@ -11,6 +11,7 @@ const App = () => {
         <Router>
             <AppRoutes>
                 <LandingPage/>
+                
             </AppRoutes>
         </Router>
     );
