@@ -1,0 +1,86 @@
+/* Main Container for Notifications */
+.notification-page-container {
+    padding: 20px;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;  /* Center the content */
+}
+
+/* Main Box Styling */
+.notification-box {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;  /* Width of the entire box */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.main-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Subheading for recent alerts */
+.sub-heading {
+    font-size: 1.5rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Alert Cards Container */
+.alert-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Individual Alert Cards */
+.alert-card {
+    background: #E0F7FA;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 30%;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Alert Time Styling */
+.alert-time {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Container for Alert Details and Filters */
+.alert-details-filters-container {
+    display: flex;  /* Use flexbox to place details and filters side by side */
+    width: 100%;  /* Full width of the box */
+}
+
+/* Centered Alert Details */
+.alert-details {
+    margin-bottom: 20px;
+    width: 70%;  /* Width of the alert details section */
+    
+}
+
+/* Filters Section on Right */
+.alert-filters {
+    width: 25%;  /* Width of the filters section */
+    padding-left: 15px;
+}
+
+.alert-filters h4 {
+    margin-bottom: 10px;
+}
+
+.alert-filters label {
+    display: block;
+    margin-bottom: 8px;
+}
