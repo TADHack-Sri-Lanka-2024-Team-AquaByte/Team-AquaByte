@@ -12,26 +12,6 @@ body {
     padding: 0; /* Remove default padding */
 }
 
-/* Header Styles */
-header {
-    display: flex;
-    justify-content: center; /* Center the header content */
-    align-items: center; /* Vertically center the items */
-    background-color: #ffffff; /* Background color for header */
-    width: 100vw; /* Full viewport width */
-    position: relative; /* Allows for absolute positioning of child elements */
-    z-index: 10; /* Ensure header is above other content */
-}
-
-.header-nav {
-    display: flex;
-    justify-content: space-between; /* Space between logo and sign-in button */
-    align-items: center; /* Vertically align items */
-    width: 100%;
-    max-width: 1200px; /* Optional: Limit the max width of header */
-    flex-grow: 1; /* Allow header-nav to grow to fill space */
-}
-
 .logo {
     height: 80px;
     width: 80px; 

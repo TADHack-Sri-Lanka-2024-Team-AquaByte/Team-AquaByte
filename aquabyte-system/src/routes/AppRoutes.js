@@ -12,7 +12,7 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/notifications" element={<NotificationPage />} />  
-            {/* Add more routes as needed */}
+            
         </Routes>
     );
 };

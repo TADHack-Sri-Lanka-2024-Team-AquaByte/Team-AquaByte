@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header'; 
 import Footer from '../components/Footer';  
-import './NotificationPage.css';  // Import the CSS file for styling
+import './NotificationPage.css';  
 
 const NotificationPage = () => {
     // State to manage selected alert
