@@ -3,7 +3,11 @@
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     color: white;
     padding: 40px;
+    text-align: center;
+    width: 100%; /* Ensure footer takes full width */
 }
+
+
 
 /* Top section of the footer (before the line) */
 .footer-top {

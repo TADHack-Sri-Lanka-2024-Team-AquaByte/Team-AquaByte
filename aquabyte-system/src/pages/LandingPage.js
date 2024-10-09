@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import "./LandingPage.css";
 
 const LandingPage = () => {
     const navigate = useNavigate(); // For navigation
@@ -13,11 +14,11 @@ const LandingPage = () => {
     return (
         <div className="landing-page">
             <Header /> {/* Include the Header component */}
-            <div className="image-container">
+            <div className="image-container1">
                 <img src="barracuda.jpg" alt="Descriptive Alt Text" className="landing-image" />
                 <div className="text-overlay">
                     <h1>Real-time Monitoring for Sustainable Fishing</h1>
-                    <h2>Enhancing efficiency and Sustainability in the fishing industry</h2>
+                    <h3>Enhancing efficiency and Sustainability in the fishing industry</h3>
                     <button className="get-started-button" onClick={handleGetStartedClick}>Get Started</button>
                 </div>
             </div>
