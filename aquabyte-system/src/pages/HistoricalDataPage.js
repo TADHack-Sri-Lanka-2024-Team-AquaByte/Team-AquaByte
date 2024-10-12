@@ -1,5 +1,3 @@
-import "./HistoricalDataPage.css";
-
 import React from 'react';
 import { Pie, Bar } from 'react-chartjs-2';
 import {
@@ -12,6 +10,7 @@ import {
     CategoryScale,
     LinearScale,
 } from 'chart.js';
+import { Button, Box, Typography, Select, MenuItem} from '@mui/material';
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -20,14 +19,13 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    ArcElement,  // For pie charts
-    BarElement,   // For bar charts
-    CategoryScale, // For x-axis labels in bar chart
-    LinearScale    // For y-axis values in bar chart
+    ArcElement,
+    BarElement,
+    CategoryScale,
+    LinearScale
 );
 
 const HistoricalDataPage = () => {
-    // Sample data for pie and bar charts
     const speciesData = {
         labels: ['Angula', 'Gadget', 'Gabbro', 'Catfish', 'Others'],
         datasets: [
@@ -80,56 +78,121 @@ const HistoricalDataPage = () => {
     };
 
     return (
-        <div>
+        <Box>
             <Header />
-            <div className="historical-data-page">
-                {/* Filter Section */}
-                <div className="filter-section">
-                    <select className="filter-dropdown">
-                        <option>Select Species</option>
-                        {/* Add more options here */}
-                    </select>
-                    <select className="filter-dropdown">
-                        <option>Select Vessel</option>
-                        {/* Add more options here */}
-                    </select>
-                    <select className="filter-dropdown">
-                        <option>Select Fishing Zone</option>
-                        {/* Add more options here */}
-                    </select>
-                    <select className="filter-dropdown">
-                        <option>Select Date Range</option>
-                        {/* Add more options here */}
-                    </select>
-                    <button className="filter-button">See Catch Rates</button>
-                </div>
+            <Box className="historical-data-page" sx={{ padding: '40px' }}>
+            <Box className="filter-section" sx={{ display: 'flex', gap: '40px', mb: '20px'}}>
+            <Select
+                variant="outlined"
+                defaultValue="" // Keep this as an empty string
+                displayEmpty
+                sx={{
+                    padding: '10px',
+                    border: '1px solid #ccc',
+                    borderRadius: '5px',
+                    minWidth: '150px',
+                }}
+            >
+                <MenuItem value="" disabled>
+                    <em>Select Species</em>
+                </MenuItem>
+                {/* Add more options here */}
+                <MenuItem value="species1">Species 1</MenuItem>
+                <MenuItem value="species2">Species 2</MenuItem>
+            </Select>
+            <Select
+                variant="outlined"
+                defaultValue="" // Keep this as an empty string
+                displayEmpty
+                sx={{
+                    padding: '10px',
+                    border: '1px solid #ccc',
+                    borderRadius: '5px',
+                    minWidth: '150px',
+                }}
+            >
+                <MenuItem value="" disabled>
+                    <em>Select Vessel</em>
+                </MenuItem>
+                {/* Add more options here */}
+                <MenuItem value="vessel1">Vessel 1</MenuItem>
+                <MenuItem value="vessel2">Vessel 2</MenuItem>
+            </Select>
+            <Select
+                variant="outlined"
+                defaultValue="" // Keep this as an empty string
+                displayEmpty
+                sx={{
+                    padding: '10px',
+                    border: '1px solid #ccc',
+                    borderRadius: '5px',
+                    minWidth: '150px',
+                }}
+            >
+                <MenuItem value="" disabled>
+                    <em>Select Fishing Zone</em>
+                </MenuItem>
+                {/* Add more options here */}
+                <MenuItem value="zone1">Zone 1</MenuItem>
+                <MenuItem value="zone2">Zone 2</MenuItem>
+            </Select>
+            <Select
+                variant="outlined"
+                defaultValue="" // Keep this as an empty string
+                displayEmpty
+                sx={{
+                    padding: '10px',
+                    border: '1px solid #ccc',
+                    borderRadius: '5px',
+                    minWidth: '150px',
+                }}
+            >
+                <MenuItem value="" disabled>
+                    <em>Select Date Range</em>
+                </MenuItem>
+                {/* Add more options here */}
+                <MenuItem value="date1">Date Range 1</MenuItem>
+                <MenuItem value="date2">Date Range 2</MenuItem>
+            </Select>
+            <Button
+                variant="contained"
+                sx={{
+                    padding: '10px 20px',
+                    backgroundColor: '#282c34',
+                    color: 'white',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                }}
+            >
+                See Catch Rates
+            </Button>
+        </Box>
 
-                <div className="visualization-section">
-                    <h2>Interactive Data Visualization</h2>
+                <Box className="visualization-section" sx={{ mt: '40px', mb: '40px', margin:'100px' }}>
+                    <Typography variant="h5">Interactive Data Visualization</Typography>
 
-                    {/* Row for Pie and Bar Charts */}
-                    <div className="charts-row">
+                    <Box className="charts-row" sx={{ display: 'flex', justifyContent: 'space-between', my: '20px' }}>
                         {/* Pie Chart */}
-                        <div className="chart-container pie-chart">
-                            <h3>Species Distribution (Pie Chart)</h3>
+                        <Box className="chart-container pie-chart" sx={{ flex: 1, mx: '10px', maxWidth: '300px', maxHeight: '300px' }}>
+                            <Typography variant="h6">Species Distribution (Pie Chart)</Typography>
                             <Pie data={speciesData} width={200} height={200} />
-                        </div>
+                        </Box>
 
                         {/* Bar Chart */}
-                        <div className="chart-container bar-chart">
-                            <h3>Fish Yield Over Years (Bar Chart)</h3>
+                        <Box className="chart-container bar-chart" sx={{ flex: 1, mx: '10px', maxWidth: '300px', maxHeight: '300px' }}>
+                            <Typography variant="h6">Fish Yield Over Years (Bar Chart)</Typography>
                             <Bar data={catchData} width={200} height={200} />
-                        </div>
-                    </div>
+                        </Box>
+                    </Box>
 
                     {/* CSV Download Button */}
-                    <button onClick={handleDownloadCSV} className="csv-button">
+                    <Button variant="contained" color="success" onClick={handleDownloadCSV} className="csv-button" sx={{ display: 'block', margin: '100px auto' }}>
                         Download as CSV
-                    </button>
-                </div>
-            </div>
+                    </Button>
+                </Box>
+            </Box>
             <Footer />
-        </div>
+        </Box>
     );
 };
 

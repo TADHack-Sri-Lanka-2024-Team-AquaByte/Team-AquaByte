@@ -1,58 +1,118 @@
 import React from 'react';
-// Import Font Awesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
-// Import the CSS file
-import './Footer.css';
+import { Box, Typography, Select, MenuItem, IconButton } from '@mui/material';
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            {/* Before the line */}
-            <div className="footer-top">
-                <div className="footer-logo">
-                    <h2>AquaByte</h2>
-                </div>
-                <div className="footer-links">
-                    <a href="/about">About Us</a>
-                    <a href="/contact">Contact Us</a>
-                </div>
-            </div>
+        <Box
+            component="footer"
+            sx={{
+                background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
+                color: 'white',
+                padding: '20px',
+                width: '100%',
+                textAlign: 'center',
+                position: 'relative', // Allow for proper positioning
+                overflow: 'hidden', // Prevent overflow
+            }}
+        >
+            {/* Top section */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    borderBottom: '1px solid white',
+                    paddingBottom: '20px',
+                    flexWrap: 'wrap', // Allow wrapping for smaller screens
+                    maxWidth: '1200px', // Set a max width for the footer
+                    margin: '0 auto', // Center align the footer
+                }}
+            >
+                <Typography variant="h4" component="h2" sx={{ margin: 0 }}>
+                    AquaByte
+                </Typography>
 
-            {/* After the line */}
-            <div className="footer-bottom">
-                {/* Language select on the left */}
-                <div className="footer-language">
-                    <select>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
-                    </select>
-                </div>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap' }}> {/* Wrap the links */}
+                    <Typography
+                        component="a"
+                        href="/about"
+                        sx={{
+                            color: 'white',
+                            marginRight: '15px',
+                            textDecoration: 'none',
+                            '&:hover': { textDecoration: 'underline' },
+                        }}
+                    >
+                        About Us
+                    </Typography>
+                    <Typography
+                        component="a"
+                        href="/contact"
+                        sx={{
+                            color: 'white',
+                            marginRight: '15px',
+                            textDecoration: 'none',
+                            '&:hover': { textDecoration: 'underline' },
+                        }}
+                    >
+                        Contact Us
+                    </Typography>
+                </Box>
+            </Box>
 
-                {/* Copyright message in the middle */}
-                <div className="footer-copyright">
-                    <p>© {new Date().getFullYear()} AquaByte System. All rights reserved</p>
-                </div>
+            {/* Bottom section */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: '20px',
+                    flexWrap: 'wrap', // Allow wrapping for smaller screens
+                    maxWidth: '1200px', // Set a max width for the footer
+                    margin: '0 auto', // Center align the footer
+                }}
+            >
+                {/* Language Select */}
+                <Select
+                    defaultValue="en"
+                    sx={{
+                        backgroundColor: '#203a43',
+                        color: 'white',
+                        border: 'none',
+                        textAlign:'center',
+                        marginTop:'10px',
+                        marginRight: '10px', // Add some spacing
+                    }}
+                >
+                    <MenuItem value="en">English</MenuItem>
+                    <MenuItem value="es">Spanish</MenuItem>
+                    <MenuItem value="fr">French</MenuItem>
+                </Select>
 
-                {/* Social media icons on the right */}
-                <div className="footer-socials">
-                    <a href="https://facebook.com">
-                        <FontAwesomeIcon icon={faFacebook} size="2x" />
-                    </a>
-                    <a href="https://twitter.com">
-                        <FontAwesomeIcon icon={faTwitter} size="2x" />
-                    </a>
-                    <a href="https://instagram.com">
-                        <FontAwesomeIcon icon={faInstagram} size="2x" />
-                    </a>
-                    <a href="https://linkedin.com">
-                        <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                    </a>
-                </div>
-            </div>
-        </footer>
+                {/* Copyright */}
+                <Typography sx={{ flex: 1, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                    © {new Date().getFullYear()} AquaByte System. All rights reserved.
+                </Typography>
+
+                {/* Social Media Icons */}
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <IconButton href="https://facebook.com" sx={{ color: 'white', marginRight: '10px' }}>
+                        <FontAwesomeIcon icon={faFacebook} size="1x" />
+                    </IconButton>
+                    <IconButton href="https://twitter.com" sx={{ color: 'white', marginRight: '10px' }}>
+                        <FontAwesomeIcon icon={faTwitter} size="1x" />
+                    </IconButton>
+                    <IconButton href="https://instagram.com" sx={{ color: 'white', marginRight: '10px' }}>
+                        <FontAwesomeIcon icon={faInstagram} size="1x" />
+                    </IconButton>
+                    <IconButton href="https://linkedin.com" sx={{ color: 'white' }}>
+                        <FontAwesomeIcon icon={faLinkedin} size="1x" />
+                    </IconButton>
+                </Box>
+            </Box>
+        </Box>
     );
 };
 

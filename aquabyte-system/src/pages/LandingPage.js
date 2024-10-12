@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box, Button, Typography, Grid, Paper } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import "./LandingPage.css";
 
 const LandingPage = () => {
     const navigate = useNavigate(); // For navigation
@@ -12,48 +12,103 @@ const LandingPage = () => {
     };
 
     return (
-        <div className="landing-page">
+        <Box className="landing-page" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
             <Header /> {/* Include the Header component */}
-            <div className="image-container1">
-                <img src="barracuda.jpg" alt="Descriptive Alt Text" className="landing-image" />
-                <div className="text-overlay">
-                    <h1>Real-time Monitoring for Sustainable Fishing</h1>
-                    <h3>Enhancing efficiency and Sustainability in the fishing industry</h3>
-                    <button className="get-started-button" onClick={handleGetStartedClick}>Get Started</button>
-                </div>
-            </div>
-            {/* New UI Section */}
-            <div className="features-section">
-                <h2 className="features-heading">Explore Our Features</h2>
-                <div className="features-container">
-                    <div className="feature">
-                        <h3 className="feature-title">Fish Species Identification</h3>
-                        <p className="feature-description">Identifies different species of fish in real-time</p>
-                        <button className="feature-button">Learn More</button>
-                    </div>
-                    <div className="feature">
-                        <h3 className="feature-title">Quota Management</h3>
-                        <p className="feature-description">Manage fishing quotas effectively</p>
-                        <button className="feature-button">Learn More</button>
-                    </div>
-                    <div className="feature">
-                        <h3 className="feature-title">Fish Health Management</h3>
-                        <p className="feature-description">Monitor and manage the health of fish</p>
-                        <button className="feature-button">Learn More</button>
-                    </div>
-                </div>
-            </div>
 
-            {/* New Section */}
-            <div className="cta-section">
-                <h2 className="cta-heading">Dive in Today</h2>
-                <p className="cta-text">Join AquaByte and explore a world of seamless aquatic management.</p>
-                <p className="cta-text">Register now to streamline your processes.</p>
-                <button className="cta-button" onClick={() => navigate('/register')}>Register</button>
-            </div>
+            <Box
+                sx={{
+                    position: 'relative',
+                    width: '100%',
+                    height: '450px',
+                    overflow: 'hidden',
+                }}
+            >
+                <img src="barracuda.jpg" alt="Descriptive Alt Text" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        color: 'white',
+                        textAlign: 'center',
+                    }}
+                >
+                    <Typography variant="h1" sx={{ fontSize: { xs: '2em', sm: '2.5em' }, marginBottom: '10px' }}>
+                        Real-time Monitoring for Sustainable Fishing
+                    </Typography>
+                    <Typography variant="h3" sx={{ fontSize: { xs: '2em', sm: '1.5em' }, marginBottom: '10px' }}>
+                        Enhancing efficiency and Sustainability in the fishing industry
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        onClick={handleGetStartedClick}
+                        sx={{
+                            backgroundColor: '#0e2041',
+                            '&:hover': { backgroundColor: '#21a1f1' },
+                            marginTop: '10px',
+                        }}
+                    >
+                        Get Started
+                    </Button>
+                </Box>
+            </Box>
+
+            {/* Features Section */}
+            <Box sx={{ padding: '20px 20px', backgroundColor: '#f9f9f9', margin: '150px 0 50px 0' }}>
+                <Typography variant="h2" sx={{ fontSize: '2.5em', marginBottom: '30px', textAlign: 'center', color: '#333' }}>
+                    Explore Our Features
+                </Typography>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={4}>
+                        <Paper sx={{ padding: '20px', textAlign: 'center', height: '100%' }}>
+                            <Typography variant="h3" sx={{ fontSize: '2em', marginBottom: '30px'}}>Fish Species Identification</Typography>
+                            <Typography>Identifies different species of fish in real-time</Typography>
+                            <Button variant="outlined" sx={{ marginTop: '10px' }}>Learn More</Button>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Paper sx={{ padding: '20px', textAlign: 'center', height: '100%' }}>
+                            <Typography variant="h3" sx={{ fontSize: '2em', marginBottom: '30px'}}>Quota Management</Typography>
+                            <Typography>Manage fishing quotas effectively</Typography>
+                            <Button variant="outlined" sx={{ marginTop: '10px' }}>Learn More</Button>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Paper sx={{ padding: '20px', textAlign: 'center', height: '100%' }}>
+                            <Typography variant="h3" sx={{ fontSize: '2em', marginBottom: '30px'}}>Fish Health Management</Typography>
+                            <Typography>Monitor and manage the health of fish</Typography>
+                            <Button variant="outlined" sx={{ marginTop: '10px' }}>Learn More</Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
+            </Box>
+
+            {/* CTA Section */}
+            <Box sx={{ padding: '40px 20px', textAlign: 'center' }}>
+                <Typography variant="h2" sx={{ fontSize: '2.5em', marginBottom: '20px', color: '#0e2041' }}>
+                    Dive in Today
+                </Typography>
+                <Typography variant="body1" sx={{ marginBottom: '15px', color: '#0e2041' }}>
+                    Join AquaByte and explore a world of seamless aquatic management.
+                </Typography>
+                <Typography variant="body1" sx={{ marginBottom: '20px', color: '#0e2041' }}>
+                    Register now to streamline your processes.
+                </Typography>
+                <Button
+                    variant="contained"
+                    onClick={() => navigate('/register')}
+                    sx={{
+                        backgroundColor: '#0e2041',
+                        '&:hover': { backgroundColor: '#21a1f1' },
+                    }}
+                >
+                    Register
+                </Button>
+            </Box>
 
             <Footer /> {/* Include the Footer component */}
-        </div>
+        </Box>
     );
 };
 

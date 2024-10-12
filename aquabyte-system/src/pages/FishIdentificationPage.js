@@ -1,5 +1,6 @@
 import React from 'react';
-import './FishIdentificationPage.css'; 
+import { Container, Box, Typography, TextField, Grid, Card, CardContent, CardMedia, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -26,46 +27,60 @@ const FishIdentificationPage = () => {
 
             {/* Main Content */}
             <main>
-                <section className="image-container">
-                    <div className="text-content">
-                        <h1>Fish Identification</h1>
-                        <p>A comprehensive guide to identifying fish species in Sri Lanka.</p>
-                    </div>
-                    <img src="fish-svg.png" alt="Fish Graphic" className="small-fish-image" />
-                </section>
+                <Box sx={{ backgroundColor: '#cce7ff', height: '350px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px', position: 'relative' }}>
+                    <Box sx={{ maxWidth: '60%', padding: '100px' }}>
+                        <Typography variant="h1" sx={{ fontSize: '60px', color: '#333' }}>Fish Identification</Typography>
+                        <Typography variant="body1" sx={{ fontSize: '18px', marginTop: '10px', color: '#555' }}>
+                            A comprehensive guide to identifying fish species in Sri Lanka.
+                        </Typography>
+                    </Box>
+                    <Box component="img" src="fish-svg.png" alt="Fish Graphic" sx={{ width: '500px', height: 'auto', position: 'absolute', right: '150px', bottom: '20px' }} />
+                </Box>
 
                 {/* Search Bar */}
-                <div className="search-bar">
-                    <input type="text" placeholder="Search for Fish Species..." />
-                </div>
+                <Box sx={{ textAlign: 'center', marginBottom: '40px', marginTop: '40px' }}>
+                    <TextField
+                        variant="outlined"
+                        placeholder="Search for Fish Species..."
+                        sx={{ width: '60%', padding: '10px', borderRadius: '5px', border: '1px solid #ddd' }}
+                    />
+                </Box>
 
                 {/* Fish Cards */}
-                <div className="fish-cards">
-                    {fishData.map((fish, index) => (
-                        <div key={index} className="fish-card">
-                            <img src={fish.image} alt={fish.species} />
-                            <div className="fish-info">
-                                <p>Species: {fish.species}</p>
-                                <p>Size: {fish.size}</p>
-                                <p>Weight: {fish.weight}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <Container>
+                    <Grid container spacing={3} sx={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+                        {fishData.map((fish, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{ backgroundColor: 'white', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                                    <CardMedia component="img" image={fish.image} alt={fish.species} sx={{ borderRadius: '10px', marginBottom: '15px' }} />
+                                    <CardContent sx={{ textAlign: 'center' }}>
+                                        <Typography variant="h6">Species: {fish.species}</Typography>
+                                        <Typography variant="body1">Size: {fish.size}</Typography>
+                                        <Typography variant="body1">Weight: {fish.weight}</Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
 
                 {/* FAQ Section */}
-                <section className="faq-section">
-                    <h2>Frequently Asked Questions</h2>
+                <Container sx={{ padding: '40px', backgroundColor: '#f9f9f9' }}>
+                    <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '30px' }}>Frequently Asked Questions</Typography>
                     {faqData.map((faq, index) => (
-                        <div key={index} className="faq-item">
-                            <details>
-                                <summary>{faq.question}</summary>
-                                <p>{faq.answer}</p>
-                            </details>
-                        </div>
+                        <Accordion key={index} sx={{ marginBottom: '15px' }}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`panel${index + 1}-content`} id={`panel${index + 1}-header`}>
+                                <Typography>{faq.question}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>{faq.answer}</Typography>
+                            </AccordionDetails>
+                        </Accordion>
                     ))}
-                </section>
+                </Container>
             </main>
+
+            {/* Footer */}
             <Footer />
         </div>
     );
