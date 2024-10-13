@@ -13,8 +13,9 @@ const Footer = () => {
                 padding: '20px',
                 width: '100%',
                 textAlign: 'center',
-                position: 'relative', // Allow for proper positioning
-                overflow: 'hidden', // Prevent overflow
+                position: 'relative',
+                overflow: 'hidden',
+                boxSizing: 'border-box', // Ensure padding is included in the total width
             }}
         >
             {/* Top section */}
@@ -25,16 +26,17 @@ const Footer = () => {
                     alignItems: 'center',
                     borderBottom: '1px solid white',
                     paddingBottom: '20px',
-                    flexWrap: 'wrap', // Allow wrapping for smaller screens
-                    maxWidth: '1200px', // Set a max width for the footer
-                    margin: '0 auto', // Center align the footer
+                    flexWrap: 'wrap',
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    paddingX: '10px', // Add horizontal padding
                 }}
             >
                 <Typography variant="h4" component="h2" sx={{ margin: 0 }}>
                     AquaByte
                 </Typography>
 
-                <Box sx={{ display: 'flex', flexWrap: 'wrap' }}> {/* Wrap the links */}
+                <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                     <Typography
                         component="a"
                         href="/about"
@@ -69,9 +71,10 @@ const Footer = () => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     marginTop: '20px',
-                    flexWrap: 'wrap', // Allow wrapping for smaller screens
-                    maxWidth: '1200px', // Set a max width for the footer
-                    margin: '0 auto', // Center align the footer
+                    flexWrap: 'wrap',
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    paddingX: '10px', // Add horizontal padding
                 }}
             >
                 {/* Language Select */}
@@ -81,9 +84,12 @@ const Footer = () => {
                         backgroundColor: '#203a43',
                         color: 'white',
                         border: 'none',
-                        textAlign:'center',
-                        marginTop:'10px',
-                        marginRight: '10px', // Add some spacing
+                        textAlign: 'center',
+                        marginTop: '10px',
+                        marginRight: '10px',
+                        width: 'auto', // Use auto width
+                        minWidth: '100px', // Set a minimum width for consistency
+                        boxSizing: 'border-box', // Include padding in the width calculation
                     }}
                 >
                     <MenuItem value="en">English</MenuItem>

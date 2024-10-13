@@ -1,8 +1,7 @@
-// src/components/Header.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCog, faUser } from '@fortawesome/free-solid-svg-icons'; // Import the profile icon
 import { AppBar, Toolbar, Typography, Box, Button, IconButton } from '@mui/material';
 
 const Header = () => {
@@ -11,8 +10,9 @@ const Header = () => {
     // Function to render navigation based on the current route
     const renderNav = () => {
         const isDashboard = location.pathname === '/dashboard';
+        const isLandingPage = location.pathname === '/';
 
-        if (location.pathname === '/') {
+        if (isLandingPage) {
             return (
                 <Toolbar
                     sx={{
@@ -79,7 +79,19 @@ const Header = () => {
                             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                             .join(' ')}
                     </Typography>
+
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        {/* Show profile icon for all pages except landing page and dashboard */}
+                        {!isLandingPage && !isDashboard && (
+                            <IconButton
+                                component={Link}
+                                to="/user-settings"
+                                sx={{ color: 'white', marginRight: '15px' }}
+                            >
+                                <FontAwesomeIcon icon={faUser} />
+                            </IconButton>
+                        )}
+                        
                         <IconButton
                             component={Link}
                             to="/notifications"
@@ -89,7 +101,7 @@ const Header = () => {
                         </IconButton>
                         <IconButton
                             component={Link}
-                            to="/settings"
+                            to="/user-settings"
                             sx={{ color: 'white', marginLeft: '15px' }}
                         >
                             <FontAwesomeIcon icon={faCog} />

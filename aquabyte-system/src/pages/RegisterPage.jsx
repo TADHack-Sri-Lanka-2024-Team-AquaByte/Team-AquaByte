@@ -5,21 +5,19 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle Register logic here
-        console.log('Register:', { email, password,confirmPassword });
-      };
-    
-      const handleGoogleLogin = () => {
+        console.log('Register:', { email, password, confirmPassword });
+    };
+
+    const handleGoogleLogin = () => {
         // Handle Google login logic here
         console.log('Login with Google');
-      };
+    };
 
     return (
-
         <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
             <Box
                 sx={{
@@ -34,12 +32,10 @@ const Register = () => {
                     component="img"
                     src="stingray.jpg"
                     alt="Register"
-
                     sx={{
-                        width: '100%', // Make the image occupy full width
-                        height: '100%', // Make the image occupy full height
-                        objectFit: 'cover', // Cover the entire area
-
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
                     }}
                 />
             </Box>
@@ -79,7 +75,12 @@ const Register = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         fullWidth
-                        sx={{ marginBottom: 2 }}
+                        sx={{ 
+                            marginBottom: 2,
+                            '& .MuiInputBase-root': { 
+                                backgroundColor: '#f0f0f0', // Background color for all input fields
+                            },
+                        }}
                     />
                     <TextField
                         label="Password"
@@ -89,7 +90,12 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         fullWidth
-                        sx={{ marginBottom: 2 }}
+                        sx={{ 
+                            marginBottom: 2,
+                            '& .MuiInputBase-root': { 
+                                backgroundColor: '#f0f0f0', // Same background color
+                            },
+                        }}
                     />
                     <TextField
                         label="Confirm Password"
@@ -99,7 +105,12 @@ const Register = () => {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                         fullWidth
-                        sx={{ marginBottom: 2 }}
+                        sx={{ 
+                            marginBottom: 2,
+                            '& .MuiInputBase-root': { 
+                                backgroundColor: '#f0f0f0', // Same background color
+                            },
+                        }}
                     />
                     <Box
                         sx={{
@@ -167,12 +178,7 @@ const Register = () => {
                     </Button>
                 </Typography>
             </Box>
-
-            
         </Box>
-       
-
-
     );
 };
 
