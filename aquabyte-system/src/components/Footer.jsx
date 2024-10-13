@@ -39,7 +39,7 @@ const Footer = () => {
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                     <Typography
                         component="a"
-                        href="/about"
+                        href="/about-us"
                         sx={{
                             color: 'white',
                             marginRight: '15px',
@@ -51,7 +51,7 @@ const Footer = () => {
                     </Typography>
                     <Typography
                         component="a"
-                        href="/contact"
+                        href="/contact-us"
                         sx={{
                             color: 'white',
                             marginRight: '15px',
